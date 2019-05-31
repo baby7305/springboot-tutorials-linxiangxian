@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 
-
 @RestController
 @RequestMapping("/cat")
 public class CatController {
@@ -33,6 +32,18 @@ public class CatController {
 	@RequestMapping("/getAll")
 	public Iterable<Cat> getAll() {
 		return catService.getAll();
+	}
+
+	@RequestMapping("/findByCatName")
+	public Cat findByCatName(String catName) {
+		return catService.findByCatName(catName);
+	}
+
+	@RequestMapping("/findByCatName2")
+	public Cat findByCatName2(String catName) {
+		System.out.println("CatController.findByCatName2()");
+		return catService.findByCatName2(catName);
+
 	}
 
 }
