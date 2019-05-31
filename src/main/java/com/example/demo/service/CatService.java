@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 import com.example.demo.bean.Cat;
+import com.example.demo.dao.CatDao;
 import com.example.demo.respository.Cat2Repository;
 import com.example.demo.respository.CatRepository;
 import org.springframework.stereotype.Service;
@@ -16,6 +17,9 @@ public class CatService {
 
 	@Resource
 	private Cat2Repository cat2Repository;
+
+	@Resource
+	private CatDao catDao;
 
 	/**
 	 * save,update ,delete 方法需要绑定事务.
@@ -49,6 +53,10 @@ public class CatService {
 
 	public Cat findByCatName2(String catName) {
 		return cat2Repository.findMyCatName2(catName);
+	}
+
+	public Cat selectByCatName(String catName) {
+		return catDao.selectByCatName(catName);
 	}
 
 }
